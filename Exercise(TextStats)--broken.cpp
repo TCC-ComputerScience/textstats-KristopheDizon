@@ -39,7 +39,7 @@ void IncrementCounters(/*IN */ Counters counters, /* OUT */ char &character);
 void PrintTable(/* IN */ Counters counters);
 
 // This function initializes the counters to 0
-void InitializeCounters(/* OUT */ Counters counters);
+void InitializeCounters(/* OUT */ Counters& counters);
 
 
 int main() {
@@ -94,7 +94,7 @@ Features Decode(char character) {
             case '\n' :  return EOW;
        }
 
-    return false;
+    return IGNORE;
 }
 
 //******************************************************************
@@ -168,7 +168,7 @@ void IncrementCounters(counters counters, char &character) {
 
 //***********************************************************
 
-void InitializeCounters(Counters counters) {
+void InitializeCounters(Counters& counters) {
     counters.uppercase = 1;
     counters.lowercase = 1;
     counters.digit = 1;
